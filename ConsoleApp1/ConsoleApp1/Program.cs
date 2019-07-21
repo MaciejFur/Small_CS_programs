@@ -33,6 +33,7 @@ namespace ConsoleApp2
         {
             int[,] a = new int[5, 4] { { 1, 1, 1, 0 }, { -2, -3, 2, 1 }, { 2, -5, 0, -1 }, { -3, 4, 6, 2 }, { -6, 6, 3, 4 } };
             Console.WriteLine("numer kolumny z najmniejszą sumą = " + KtoraKolumna(a));
+            Console.ReadLine();
         }
     }
 }
