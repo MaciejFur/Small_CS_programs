@@ -64,18 +64,75 @@ namespace Patterns
                 Console.WriteLine(vertical);
             }
         }
+
         public static void romb(int n)
         {
-            StringBuilder builder = new StringBuilder().Insert(0, " ", n);
-            Console.WriteLine(new string('*', n));
+            
+            
             for (int i = 0; i < n / 2; ++i)
             {
-                Console.WriteLine('*');
+                StringBuilder up = new StringBuilder().Insert(0, " ", n);
+                up[n / 2 + i] = '*';
+                up[n / 2 - i] = '*';
+                Console.WriteLine(up);
             }
+            StringBuilder down = new StringBuilder().Insert(0, "*", n);
+            Console.WriteLine(down);
+            for (int i = 0; i < n / 2; ++i)
+            {
+                down[n - i - 1] = ' ';
+                down[i] = ' ';
+                Console.WriteLine(down);
+            }
+            
+
+
+        }
+        public static void literaA(int n)
+        {
+            StringBuilder line = new StringBuilder().Insert(0, " ", n);
+            StringBuilder peak = new StringBuilder();
+            for (int i = 0; i<n/3;i++)
+            {
+                peak = new StringBuilder().Insert(0, " ", n);
+                peak[n / 2 - i] = '*';
+                peak[n / 2 + i] = '*';
+                line[n / 2 + i] = '*';
+                line[n / 2 - i] = '*';
+                Console.WriteLine(peak);
+
+            }
+            Console.WriteLine(line);
+            for (int i = 0; i < n / 3; i++)
+            {
+                Console.WriteLine(peak);
+            }
+        }
+        public static void drugieA(int n)
+        {
+            StringBuilder line = new StringBuilder().Insert(0, " ", n);
+            StringBuilder peak = new StringBuilder();
+            for (int i = 0; i < n / 2; i++)
+            {
+                peak = new StringBuilder().Insert(0, " ", n);
+                peak[n / 2 - i] = '*';
+                peak[n / 2 + i] = '*';
+                line[n / 2 + i] = '*';
+                line[n / 2 - i] = '*';
+                Console.WriteLine(peak);
+                if (i == n / 4)
+                {
+                    line[n / 2 + i+1] = '*';
+                    line[n / 2 - i-1] = '*';
+                    Console.WriteLine(line);
+                    i++;
+                }
+            }
+            
         }
         public static void Main()
         {
-            romb(7);
+            drugieA(23);
             Console.ReadKey();
         }
     }
